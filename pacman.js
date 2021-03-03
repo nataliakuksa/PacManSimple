@@ -23,7 +23,7 @@ function Run() {
   focus = (focus + 1) % 2;
   direction = checkPageBounds(direction, imgWidth, pos, pageWidth);
   //console.log('direction is ' + direction + ' , focus is ' + focus);
-  img.src = pacArray[direction][focus] + '?' + new Date().getTime();
+  img.src = pacArray[direction][focus];// + '?' + new Date().getTime();
   //console.log('array val is: ' + pacArray[direction][focus] + ' ..... image source is ' + img.src);
   if (direction) {
     pos -= 20;
@@ -33,16 +33,10 @@ function Run() {
     img.style.left = pos + 'px';
   }
 }
-// TODO: Add a setInterval call to run every 200 milliseconds. Note: in the video, Dr. Williams uses setTimeout, but here we are going to use a slightly different
-//function call of setInterval, so that you can have practice using this function call. This will also have us add a couple of extra arguments, pos (position), which was declared 
-//on line 2, and pageWidth, which is declared on line 4. 
 setInterval(Run, 200);
 
 // This function determines the direction of PacMan based on screen edge detection. 
 function checkPageBounds(direction, imgWidth, pos, pageWidth) {
-  //
-  // TODO: Complete this to reverse direction upon hitting screen edge
-  //
   if(pos + imgWidth > pageWidth) {
       direction = 1;
   } else if (pos < 0) {
